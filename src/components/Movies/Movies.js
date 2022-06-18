@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import s from './Searchbar.module.css';
 
 export default function Movies({ onSubmit }) {
@@ -13,9 +14,9 @@ export default function Movies({ onSubmit }) {
     e.preventDefault();
     const query = searchQuery.trim();
 
-    // if (query === '') {
-    //   return Notify.warning('Please, fill the main field');
-    // }
+    if (query === '') {
+      return Notify.warning('Please, fill the main field');
+    }
 
     onSubmit(query);
     // this.setState({ searchQuery: '' });

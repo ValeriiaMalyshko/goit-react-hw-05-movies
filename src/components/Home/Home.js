@@ -8,18 +8,15 @@ export default function Home() {
     MoviesList().then(({ results }) => setMovies(results));
   }, []);
   return (
-    <ul>
-      {movies.map(({ id, title }) => (
-        <li key={id}>
-          <Link
-            to={{
-              pathname: `/movies/${id}`,
-            }}
-          >
-            {title}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h2>Trending today</h2>
+      <ul>
+        {movies.map(({ id, title }) => (
+          <li key={id}>
+            <Link to={`movies/${id}`}>{title}</Link>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }

@@ -1,27 +1,17 @@
-// import React from 'react';
-// import { NavLink } from 'react-router-dom';
-// import routes from '../routes';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-// const Navigation = () => {
-//   return (
-//     <nav className="nav nav-pills">
-//       <NavLink
-//         exact
-//         to={routes.home}
-//         className="nav-link"
-//         activeClassName="active"
-//       >
-//         Home
-//       </NavLink>
-//       <NavLink
-//         to={routes.authors}
-//         className="nav-link"
-//         activeClassName="active"
-//       >
-//         Movies
-//       </NavLink>
-//     </nav>
-//   );
-// };
+const Navigation = () => {
+  return (
+    <nav>
+      <NavLink exact to={'/'} className="nav-link" activeClassName="active">
+        Home
+      </NavLink>
+      <NavLink to={'/movies'} className="nav-link" activeClassName="active">
+        Movies
+      </NavLink>
+    </nav>
+  );
+};
 
-// export default Navigation;
+export default Navigation;

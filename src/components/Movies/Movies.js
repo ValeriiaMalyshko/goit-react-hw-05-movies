@@ -23,9 +23,7 @@ export default function Movies({ onSubmit }) {
     if (query === '') {
       return Notify.warning('Please, fill the main field');
     }
-
     onSubmit(query);
-    // this.setState({ searchQuery: '' });
   };
 
   return (

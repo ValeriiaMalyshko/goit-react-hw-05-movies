@@ -1,13 +1,27 @@
 {
   "files": {
     "main.css": "/goit-react-hw-05-movies/static/css/main.2976ff2b.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.faecbdfc.js",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.c3ad6d66.js",
+    "static/js/625.2902e640.chunk.js": "/goit-react-hw-05-movies/static/js/625.2902e640.chunk.js",
+    "static/js/166.c71d8f1c.chunk.js": "/goit-react-hw-05-movies/static/js/166.c71d8f1c.chunk.js",
+    "static/js/354.21072fb1.chunk.js": "/goit-react-hw-05-movies/static/js/354.21072fb1.chunk.js",
+    "static/js/719.b4d84ee2.chunk.js": "/goit-react-hw-05-movies/static/js/719.b4d84ee2.chunk.js",
+    "static/js/785.5c8ca91b.chunk.js": "/goit-react-hw-05-movies/static/js/785.5c8ca91b.chunk.js",
+    "static/js/541.3414e03a.chunk.js": "/goit-react-hw-05-movies/static/js/541.3414e03a.chunk.js",
+    "static/js/774.559ab0ac.chunk.js": "/goit-react-hw-05-movies/static/js/774.559ab0ac.chunk.js",
     "index.html": "/goit-react-hw-05-movies/index.html",
     "main.2976ff2b.css.map": "/goit-react-hw-05-movies/static/css/main.2976ff2b.css.map",
-    "main.faecbdfc.js.map": "/goit-react-hw-05-movies/static/js/main.faecbdfc.js.map"
+    "main.c3ad6d66.js.map": "/goit-react-hw-05-movies/static/js/main.c3ad6d66.js.map",
+    "625.2902e640.chunk.js.map": "/goit-react-hw-05-movies/static/js/625.2902e640.chunk.js.map",
+    "166.c71d8f1c.chunk.js.map": "/goit-react-hw-05-movies/static/js/166.c71d8f1c.chunk.js.map",
+    "354.21072fb1.chunk.js.map": "/goit-react-hw-05-movies/static/js/354.21072fb1.chunk.js.map",
+    "719.b4d84ee2.chunk.js.map": "/goit-react-hw-05-movies/static/js/719.b4d84ee2.chunk.js.map",
+    "785.5c8ca91b.chunk.js.map": "/goit-react-hw-05-movies/static/js/785.5c8ca91b.chunk.js.map",
+    "541.3414e03a.chunk.js.map": "/goit-react-hw-05-movies/static/js/541.3414e03a.chunk.js.map",
+    "774.559ab0ac.chunk.js.map": "/goit-react-hw-05-movies/static/js/774.559ab0ac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2976ff2b.css",
-    "static/js/main.faecbdfc.js"
+    "static/js/main.c3ad6d66.js"
   ]
 }

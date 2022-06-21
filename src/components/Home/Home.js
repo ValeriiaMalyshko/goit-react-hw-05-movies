@@ -10,13 +10,15 @@ export default function Home() {
   return (
     <>
       <h2>Trending today</h2>
-      <ul>
-        {movies.map(({ id, title }) => (
-          <li key={id}>
-            <Link to={`movies/:${id}`}>{title}</Link>
-          </li>
-        ))}
-      </ul>
+      {movies && (
+        <ul>
+          {movies.map(({ id, title }) => (
+            <li key={id}>
+              <Link to={`movies/${id}`}>{title}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }

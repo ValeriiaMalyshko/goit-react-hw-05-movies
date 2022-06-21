@@ -1,38 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { MoviesSearch } from 'services/API';
 
-export default function Movies({ onSubmit }) {
-  const [searchQuery, setSearchQuery] = useState('');
+export default function Movies() {
+  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    const query = searchParams.get('searchQuery');
-    if (query) {
-      MoviesSearch(query).then(({ results }) => setMovies(results));
+    const searchQuery = searchParams.get('query');
+    if (searchQuery) {
+      MoviesSearch(searchQuery).then(({ results }) => setMovies(results));
     }
   });
 
   const handleChange = e => {
-    setSearchQuery(e.currentTarget.value.toLowerCase());
+    setQuery(e.currentTarget.value.toLowerCase());
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const query = searchQuery.trim().toLocaleLowerCase();
+    const searchQuery = query.trim().toLocaleLowerCase();
 
-    if (query === '') {
+    if (searchQuery === '') {
       alert('Please, enter a movie title');
       return;
     }
+    setSearchParams({ query: searchQuery });
 
-    setSearchParams({ searchQuery: query });
-    MoviesSearch(query).then(({ results }) => setMovies(results));
-
-    onSubmit(query);
+    MoviesSearch(searchQuery).then(({ results }) => setMovies(results));
   };
 
   return (
@@ -43,7 +39,7 @@ export default function Movies({ onSubmit }) {
           autoComplete="off"
           autoFocus
           placeholder="Search film"
-          value={searchQuery}
+          value={query}
           onChange={handleChange}
         />
         <button type="submit">
@@ -62,7 +58,3 @@ export default function Movies({ onSubmit }) {
     </header>
   );
 }
-
-Movies.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

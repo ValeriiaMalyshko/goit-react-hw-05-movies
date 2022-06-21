@@ -8,7 +8,7 @@ export async function MoviesList() {
     api_key: KEY,
   };
   try {
-    const response = await axios('/trending/all/day', { params });
+    const response = await axios(`/trending/all/day`, { params });
     return response.data;
   } catch (error) {
     console.error(error);
@@ -34,7 +34,7 @@ export async function Movie(id = '') {
     movie_id: id,
   };
   try {
-    const response = await axios('/movie/{movie_id}', { params });
+    const response = await axios(`/movie/${id}`, { params });
     return response.data;
   } catch (error) {
     console.error(error);
@@ -47,7 +47,7 @@ export async function MovieCredits(id = '') {
     movie_id: id,
   };
   try {
-    const response = await axios('/movie/{movie_id}/credits', { params });
+    const response = await axios(`/movie/${id}/credits`, { params });
     return response.data;
   } catch (error) {
     console.error(error);
@@ -60,7 +60,7 @@ export async function MovieReviews(id = '') {
     movie_id: id,
   };
   try {
-    const response = await axios('/movie/{movie_id}/reviews', { params });
+    const response = await axios(`/movie/${id}/reviews`, { params });
     return response.data;
   } catch (error) {
     console.error(error);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import { MovieReviews } from 'services/API';
 
-export default function Reviews(id) {
+export default function Reviews({ id }) {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     MovieReviews(id).then(({ results }) => setReviews(results));

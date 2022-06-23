@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { Link, useParams, Routes, Route } from 'react-router-dom';
+import { Link, useParams, Routes, Route, useNavigate } from 'react-router-dom';
 import { Movie } from 'services/API';
 import NoPoster from './no-poster.jpg';
 import s from './MovieDetails.module.css';
@@ -8,12 +8,16 @@ const Reviews = lazy(() => import('../Reviews/Reviews'));
 const Cast = lazy(() => import('../Cast/Cast'));
 
 export default function MovieDetails() {
+  const navigate = useNavigate();
   const { movieId } = useParams();
-
   const [movie, setMovie] = useState(null);
   useEffect(() => {
     Movie(movieId).then(setMovie);
   }, [movieId]);
+
+  function handleClick() {
+    navigate(-1);
+  }
 
   if (movie) {
     const { poster_path, genres, title, overview, release_date, vote_average } =
@@ -22,7 +26,9 @@ export default function MovieDetails() {
     const pictureUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
     return (
       <>
-        <button className={s.Button}>Кнопка назад</button>
+        <button className={s.Button} onClick={handleClick}>
+          Кнопка назад
+        </button>
 
         <div key={movieId} className={s.Container}>
           <div>

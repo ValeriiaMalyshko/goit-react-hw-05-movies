@@ -31,7 +31,7 @@ export async function MoviesSearch(searchQuery = '') {
 export async function Movie(id = '') {
   const params = {
     api_key: KEY,
-    movie_id: id,
+    // movie_id: id,
   };
   try {
     const response = await axios(`/movie/${id}`, { params });
@@ -44,7 +44,7 @@ export async function Movie(id = '') {
 export async function MovieCredits(id = '') {
   const params = {
     api_key: KEY,
-    movie_id: id,
+    // movie_id: id,
   };
   try {
     const response = await axios(`/movie/${id}/credits`, { params });
@@ -57,7 +57,7 @@ export async function MovieCredits(id = '') {
 export async function MovieReviews(id = '') {
   const params = {
     api_key: KEY,
-    movie_id: id,
+    // movie_id: id,
   };
   try {
     const response = await axios(`/movie/${id}/reviews`, { params });

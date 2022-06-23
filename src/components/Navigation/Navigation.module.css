@@ -1,0 +1,11 @@
+.Link {
+  font-size: 20px;
+  color: currentColor;
+  padding: 12px;
+}
+
+.Active {
+  color: rgb(141, 255, 1);
+  font-weight: 600;
+  padding: 12px;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MoviesList } from 'services/API';
+import s from './Home.module.css';
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
@@ -11,10 +12,10 @@ export default function Home() {
     <>
       <h2>Trending today</h2>
       {movies && (
-        <ul>
-          {movies.map(({ id, title }) => (
-            <li key={id}>
-              <Link to={`movies/${id}`}>{title}</Link>
+        <ul className={s.list}>
+          {movies.map(({ id, title, name }) => (
+            <li key={id} className={s.link}>
+              <Link to={`movies/${id}`}>{title ?? name}</Link>
             </li>
           ))}
         </ul>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { MoviesSearch } from 'services/API';
+import s from './Movies.module.css';
 
 export default function Movies() {
   const [query, setQuery] = useState('');
@@ -32,9 +33,10 @@ export default function Movies() {
   };
 
   return (
-    <header>
-      <form onSubmit={handleSubmit}>
+    <header className={s.Container}>
+      <form onSubmit={handleSubmit} className={s.form}>
         <input
+          className={s.input}
           type="text"
           autoComplete="off"
           autoFocus
@@ -42,14 +44,14 @@ export default function Movies() {
           value={query}
           onChange={handleChange}
         />
-        <button type="submit">
+        <button type="submit" className={s.button}>
           <span>Search</span>
         </button>
       </form>
       {movies && (
-        <ul>
+        <ul className={s.list}>
           {movies.map(({ id, title }) => (
-            <li key={id}>
+            <li key={id} className={s.link}>
               <Link to={`${id}`}>{title}</Link>
             </li>
           ))}

@@ -14,11 +14,15 @@ export default function Cast({ id }) {
         {cast.map(({ character, name, profile_path }) => (
           <li key={name}>
             <div>
-              <img
-                style={{ width: 100 }}
-                src={`https://image.tmdb.org/t/p/w500${profile_path}`}
-                alt={name}
-              />
+              {profile_path ? (
+                <img
+                  style={{ width: 100 }}
+                  src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                  alt={name}
+                />
+              ) : (
+                <p>The is no picture</p>
+              )}
             </div>
             <p>{name}</p>
             <p>{character}</p>

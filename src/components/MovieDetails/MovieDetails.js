@@ -1,5 +1,12 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { Link, useParams, Routes, Route, useNavigate } from 'react-router-dom';
+import {
+  Link,
+  useParams,
+  Routes,
+  Route,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 import { Movie } from 'services/API';
 import NoPoster from './no-poster.jpg';
 import s from './MovieDetails.module.css';
@@ -9,15 +16,26 @@ const Cast = lazy(() => import('../Cast/Cast'));
 
 export default function MovieDetails() {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   useEffect(() => {
     Movie(movieId).then(setMovie);
   }, [movieId]);
 
-  function handleClick() {
-    navigate(-1);
-  }
+  const handleClickGoBack = () => {
+    if (
+      location.pathname.includes('cast') ||
+      location.pathname.includes('reviews') ||
+      location?.state?.from?.search
+    ) {
+      return navigate(
+        location.state.from.pathname + location.state.from.search
+      );
+    }
+    navigate('/');
+  };
 
   if (movie) {
     const { poster_path, genres, title, overview, release_date, vote_average } =
@@ -26,8 +44,12 @@ export default function MovieDetails() {
     const pictureUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
     return (
       <>
-        <button className={s.Button} onClick={handleClick}>
-          Кнопка назад
+        <button
+          type="button"
+          className={s.Button}
+          onClick={() => handleClickGoBack()}
+        >
+          Go back
         </button>
 
         <div key={movieId} className={s.Container}>
@@ -53,10 +75,14 @@ export default function MovieDetails() {
           <h5>Additional information</h5>
           <ul>
             <li>
-              <Link to="cast">Cast</Link>
+              <Link to="cast" state={location.state}>
+                Cast
+              </Link>
             </li>
             <li>
-              <Link to="reviews">Reviews</Link>
+              <Link to="reviews" state={location.state}>
+                Reviews
+              </Link>
             </li>
           </ul>
           <Suspense fallback={<h1>Loading</h1>}>
